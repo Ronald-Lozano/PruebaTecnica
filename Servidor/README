@@ -1,0 +1,46 @@
+## Servidor de Gestión de Contactos
+
+### Descripción
+Este proyecto consiste en un servidor construido con Node.js y Express para gestionar contactos de usuarios. Utiliza una base de datos MongoDB para almacenar la información de los contactos y usuarios, empleando autenticación JWT para proteger las rutas y operaciones sensibles.
+
+### Archivos Principales
+
+- `app.js`: Archivo principal del servidor que inicia la aplicación Express, configura las rutas y la conexión a la base de datos.
+- `.babelrc`: Configuración de Babel para el entorno de desarrollo.
+- `routes/primerBd.mjs`: Gestión de rutas y operaciones CRUD relacionadas con los contactos.
+- `models/PrimerBd.js`: Definición del modelo de datos para los contactos.
+- `routes/UsersSchema.js`: Definición del esquema de usuario.
+- `middlewares/verifyToken.js`: Middleware para verificar el token de autenticación.
+- `controllers/UserController.js`: Controlador para operaciones relacionadas con los usuarios.
+- `package.json`: Lista de dependencias y scripts del proyecto.
+
+### Instalación
+Para instalar las dependencias del proyecto, ejecuta el siguiente comando en la terminal:
+
+```bash
+npm install
+```
+
+### Uso
+Para iniciar el servidor en modo de desarrollo, ejecuta el siguiente comando:
+
+```bash
+npm run dev
+```
+
+### Dependencias Principales
+- `express`: Framework web para Node.js.
+- `mongoose`: Librería de modelado de datos para MongoDB.
+- `jsonwebtoken`: Generación y verificación de tokens JWT.
+- `bcryptjs`: Para el hashing de contraseñas.
+- `body-parser`, `morgan`, `cors`, `connect-history-api-fallback`: Middleware para diversas funcionalidades del servidor.
+
+### Endpoints Disponibles
+- `GET /api/contacts`: Obtiene los contactos del usuario autenticado.
+- `POST /api/nuevo-registro`: Crea un nuevo contacto asociado al usuario autenticado.
+- `GET /api/buscarTodo`: Obtiene todos los registros de contactos del usuario autenticado.
+- `GET /api/buscarParametro/:id`: Obtiene un contacto específico por su ID.
+- `DELETE /api/eliminarParametro/:id`: Elimina un contacto por su ID, requiere autenticación.
+- `PUT /api/actualizar/:id`: Actualiza un contacto por su ID, requiere autenticación.
+- `POST /api/register`: Registra un nuevo usuario.
+- `POST /api/login`: Inicia sesión para un usuario existente.
